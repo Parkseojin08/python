@@ -124,6 +124,7 @@ basic   b  a  s  i  c
 print(a[0:2], a[-3])  #a[0:2] 0~2까지 출
 출력 ba s
 
+# 문자열 포매팅
+"I eat %d apples." % python
 
-
-
+=> 'I eat 3 apples.'
