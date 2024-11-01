@@ -125,6 +125,83 @@ print(a[0:2], a[-3])  #a[0:2] 0~2까지 출
 출력 ba s
 
 # 문자열 포매팅
-"I eat %d apples." % python
+문자열 안의 특정한 값을 바꿔야 하는 경우가 있을 때 이것을 가능하게 해 주는 것이 바로 문자열 포매팅이다.
+코드 설명.
+%s == 문자열(string)
+%c == 문자 1개 (charactre)
+%d == 정수(integer)
+%f == 부동소수(floating - point)
+%o == 8진수
+%x == 16진수
+%% == Literal % (문자 % 자체)
 
-=> 'I eat 3 apples.'
+숫자 대입
+"I eat %d python." % 3
+
+=> 'I eat 3 python.
+문자열 안의 숫자를 넣고 싶은 자리에 %d는 '문자열 포멧 코드'하고 부른다.
+
+문자열 대입
+
+" I Love %s" % "python"
+=> 'I Love python'
+
+문자열 안에 또 다른 문자열을 삽입하기 위해 앞에서 사용한 문자열 포맷 코드 %d 가 어닌 %s를 썼다. 즉 문자열을 넣기 위해서는 %s를 써야 한다는 사실
+
+숫자 값을 나타내는 변수로 대입
+py = 12
+"i eat %d python" % py
+=> 'i eat 12 python'
+숫자로 대입하든, 숫자 값을 나타내는 변수를 대입라든 결과는 같다.
+
+2개 이상의 값 넣기
+py = 12
+thon = "python"
+"i eat %d %s" % (py,thon)
+=> 'i eat 12 python"
+2개 이상의 값을 넣으려면 (,)안에 쉼표로 구분해서 넣어야한다. 단 포맷 코드는 잘 지켜야 작동이 된다.
+
+#format 함수를 사용한 포매팅
+문자열의 format 함수를 사용하면 좀 더 발전된 스타일로 문자열 포맷을 지정할 수 있다.
+
+숫자 대입
+"i got {0} cords".format(2) 
+=> 'i got 2 cords'
+포매팅 => 위에 {0} 자리에 2가 들어감.
+
+문자열 바로 대입하기
+"i got {0} cords".format("two")
+=> 'i got two cprds"
+{0} 자리에 two가 들어갔다.
+
+숫자 값을 가진 변수로 대입하기
+py = 2
+"i got {0} cords".format(py)
+=> 'i got 2 cords'
+{}자리에 py하는 변수의 값이 들어감.
+
+2개 이상의 값 넣기
+py = 2
+thon = "python"
+"i got {0} {1}".format(py,thon)
+2개 이상의 값을 넣는 경우 {0} {1} 로 인데스스 항목이 format 한 수의 입력값으로 순서에 맞게 바뀐다.
+위에 {0}에는 변수 py가 들어갔고 {1}에는 변수 thon이 들어갔다. 이 처럼 입력한 순서대로 0,1,2의 번호가 붙어 위와 같은 식으로 사용해야 한다.
+
+변수의 이름으로 넣기
+py = 2
+thon = "python"
+"i got {py} {thon} cords".format(py,thon)
+이 처럼 더 편리하게 변수의 이름으로 사용을 많이하는 편이다.
+
+인덱스와 이름 둘다 사용해서 출력하기
+python = "python"
+"i got {0} {python} cords".format(2,python)
+이런 식으로도 가능하다.
+
+왼쪽 정렬
+"{0:<5}".format("py")
+'py   '
+:<5 표현식을 사용하면 치환되는 문자열을 왼쪽으로 정렬하고 문자열의 총 자릿 수를 10으로 맞출 수 있더.
+
+
+
