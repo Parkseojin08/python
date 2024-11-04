@@ -1,5 +1,5 @@
 파이썬 기초를 알아봅시다!!
-
+[부족한 부분은 점프 투 파이썬 참고]
 
 x = input(x)             # x에 문자열 입력을 받는다. 
 x = int(x)               # x는 정수이다
@@ -202,6 +202,127 @@ python = "python"
 "{0:<5}".format("py")
 'py   '
 :<5 표현식을 사용하면 치환되는 문자열을 왼쪽으로 정렬하고 문자열의 총 자릿 수를 10으로 맞출 수 있더.
+
+오른쪽 정렬
+"{0:>5}".format("py")
+'   py'
+
+가운데 정렬
+"{0:^10}".format("py")
+"   py   "
+
+공백 채우기
+"{0:=^10}".format("py")
+"====py===="
+"{0:!^10}".format("py")
+"!!!!py!!!!"
+
+#f 문자열 포매팅
+파이썬 3.6 버전부터는 f 문자열 포매팅 기능을 사용할 수 있다. 3.6버전 미만부터는 사용할 수 없다. 
+
+py = 'py'
+thon = 'thon'
+f'나는 {py}{thon}이 가장 좋아'
+=> 나는 python이 가장 좋아
+이런 식으로 .format을 사용하기 보다는 f문자열 포매팅을 많이 사용한다.
+
+숫자 대입
+py = 17
+>>> f'나는 내년이면 {py + 1}살이 된다.'
+'나는 내년이면 18살이 된다.'
+
+#문자열 관련 함수들
+문자열 자료형은 자체적으로 함수를 가지고 있다. 이들 함수를 다른 말로 "문자열 내장 함수"라고 한다.
+내장 함수를 사용하려면 문자열 변수 이름 뒤에 "."를 붙인 후 이름을 써 주면 된다.
+
+1. 문자 개수 세기 count 
+py = "i love python"
+=> py.count('o')
+=> 2
+
+2. 위치 알려 주기 find
+py = "i love python"
+py.find("l")
+=> 2
+py.find("m")
+=> -1
+find 함수로 문자열 중 문자 l가 처음으로 나온 위치를 변환함. 만약 찾는 문자열이 존재하지 않는다면 -1로 변환한다.
+
+파이썬은 숫자를 0부터 세기 떄문에 ㅣ의 위치는 3이 아니라 2가 된다.
+
+2-1 위치 알려 주기 index
+내가 선택한 문자열이 있는 경우
+py = "i love python"
+py.index("e")
+=> 5
+내가 선택한 문자열이 없는 경우
+py.index("m")
+Traceback (most recent call last):
+File "<stdin>", line 1, in <module>
+ValueError: substring not found 
+
+만약 내가 선택한 문자가 문자열 내에 있으면 find와 똑같이 출력하지만.만약 아니라면 에러코드가 나온다.
+
+3. 문자열 삽입 join
+",".join('python')
+=> 'p,y,t,h,o,n'
+으로 출력
+만약 리스트를 활용해서 출력하려면.
+>>> ",".join(['p', 'y', 't', 'h', 'o', 'n'])
+'p,y,t,h,o,n'
+이런 식으로 사용가능
+
+4. 소문자를 대문자로 바꾸기 - upper
+py = 'python'
+py.upper()
+'PYTHON'
+그런대 문자열이 이미 대문자라면 아무런 변화도 일어나지 않는다.
+
+5.대문자를 소문자로 바꾸기 - lower
+py = "PYTHON"
+py.lower()
+"python"
+
+6.왼쪽 공백 지우기 -lstrip
+py = "python"
+py.lstrip()
+"python "
+문자열 중 가장 왼쪽에 있는 한칸 이상의 연속된 공백을 모두 지운다.
+
+6-1 오른쪽 공백 지우기 rstrip
+py = "python"
+py.rstrip()
+" python"
+문자열 중 가장 오른쪽에 있는 한칸 이상의 연속된 공백을 모두 지운다.
+
+6-2 양쪽 공백 지우기 strip
+py = "python
+py.strip()
+'python'
+문자열 양쪽에 있는 한칸 이상의 연속된 공백을 모두 지운다.
+
+7.문자열 바꾸기 replace
+py = "my life is python"
+py.replace("my","Your")
+=> 'Your life is python'
+
+8.문자열 나누기 split
+py = "my Life is python"
+py.split()
+['my', 'Life', 'is', 'python']
+py = "a:b:c:d"
+py.split(':')
+['a', 'b', 'c', 'd']
+
+split 함수는 py.split()처럼 괄호 안에 아무 값도 넣어 주지 않으면 공백([Space], [Tab], [Enter])을 기준으로 문자열을 나누어 준다.
+만약 py.split(':')처럼 괄호 안에 특정 값이 있을 경우에는 괄호 안의 값을 구분자로 해서 문자열을 나누어 준다. 이렇게 나눈 값은 리스트에 하나씩 들어간다.
+['my', 'Life', 'is', 'python']나 ['a', 'b', 'c', 'd']가 리스트인데, 여기에서는 너무 신경 쓰지 않아도 된다.
+앞에서 소개한 문자열 관련 함수는 문자열 처리에서 사용 빈도가 매우 높고 유용하다. 이 밖에도 몇 가지가 더 있지만 자주 사용하지는 않는다.
+
+
+
+
+
 
 
 
